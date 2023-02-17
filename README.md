@@ -467,7 +467,7 @@ Leaderboard Main Menu Option:
 ![Leaderboard1](https://github.com/DragosGhinea/GentixBank-OOP_Project/blob/main/images/Leaderboard1.png)
 ![Leaderboard2](https://github.com/DragosGhinea/GentixBank-OOP_Project/blob/main/images/Leaderboard2.png)
 
-## Aditional Information
+## Additional Information
 
 - This project was initially created in romanian and translated afterwards. The project might not have it's variables fully translated! (Sorry for that)
 
@@ -475,4 +475,4 @@ Leaderboard Main Menu Option:
 
 - https://github.com/mcmarius/poo/tree/refacere-materiale/tema-3
 - https://en.cppreference.com/w/
-- **Object Oriented Programming Course** by Anca Dobrovăț & Andrei Păun, University of Bucharest, Faculty of Mathematics and Computer Science
+- Lect. Dr. Anca Dobrovat & Prof. Dr. Andrei Paun (2022). _Object Oriented Programming Course_. University of Bucharest, Faculty of Mathematics and Computer Science

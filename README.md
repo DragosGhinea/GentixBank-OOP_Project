@@ -36,7 +36,7 @@ The project contains the following concepts which will be explained:
 
 ### Class Composition
 
-Class composition refers to the creation of a new class which combines (composes) existing classes in it's member variables.
+Class composition refers to the creation of a new class which combines (composes) existing classes in its member variables.
 
 Examples inside this project:
   - **Account class** (found in account.h) which contains members variables of type User _(owner)_, Currency _(usedCurrency)_, Card _(cards)_.
@@ -100,7 +100,7 @@ Some **destructors** in this project:
 ```c++
 //transactions.h
 
-//this destructor has it's inside commented
+//this destructor has its inside commented
 //because the class now uses smart pointers
 //but with raw pointers that code is required
 
@@ -121,7 +121,7 @@ TransactionsHistory::~TransactionsHistory(){
 //with the default settings
 
 //it needs to be virtual so if a call
-//on a Card occurs, if it's an instance of a
+//on a Card occurs, if its an instance of a
 //derived class, everything will be properly removed.
 
 virtual ~Card()=default;
@@ -134,9 +134,9 @@ We overload the operators for specific classes so working with them feels more n
 Examples:
  - `Account += double` should increase the account's balance.
  - `double - Account` should return double - account's balance.
- - `(double) Account` should cast the Account to it's balance.
- - `(string) Currency` should cast the Currency to it's name.
- - `Leaderboard += OB` adds the OB to it's internal list.
+ - `(double) Account` should cast the Account to its balance.
+ - `(string) Currency` should cast the Currency to its name.
+ - `Leaderboard += OB` adds the OB to its internal list.
  - `Currency1 = Currency2` sets Currency1's unit value to Currency2's unit value without changing the name
  - `OutputStream << Account/Card/Transaction/TransactionHistory/Currency` displays proper information about the objects
 
@@ -161,7 +161,7 @@ User::User(string last_name1, string first_name1, string email)
   };
 ```
 
-A **const method** guarantees that **the variables of the instance it belongs to** will not be modified inside it. If you want to protect it's parameters, you'd have to declare them const separately. Good for getters mostly.
+A **const method** guarantees that **the variables of the instance it belongs to** will not be modified inside it. If you want to protect its parameters, you'd have to declare them const separately. Good for getters mostly.
 
 ```c++
 //card.h
@@ -209,9 +209,9 @@ In this project **unique pointers** are used for the sole purpouse of avoiding d
  In this project **shared pointers** are used in combination with **weak pointers** to ensure that even a removed object will be kept alive as long as it is actively used somewhere else.
  - Customer class (found in user.h) owns multiple Account objects, but on Customer deletion, if the Account object is used somewhere else, it will not be deleted.
  - getAccount() method from Customer provides ownership to whoever is calling it.
- - Cards and Transactions have a **weak ownership** of the Account object, meaning they don't interact with it's destruction but can detect it and temporaly prevent it by generating a new **shared ownership instance** tbat is used inside some methods and menus.
+ - Cards and Transactions have a **weak ownership** of the Account object, meaning they don't interact with its destruction but can detect it and temporaly prevent it by generating a new **shared ownership instance** tbat is used inside some methods and menus.
 
-How are the above shared and weak ownerships useful? Imagine you create a copy of a card to use privately which will point to an Account that does not have this copy inside it's cards list. If we want to execute actions on this card that involve the Account, we will check it's existance via the weak pointer. If it doesn't exist we display an error message, otherwise we grab temporary shared ownership of the account to execute our action. We grab temporary shared ownership to prevent the **undefined behaviour** that would happen if the Account gets deleted while we execute our action (since temporary shared ownership means the object can't be destroyed).
+How are the above shared and weak ownerships useful? Imagine you create a copy of a card to use privately which will point to an Account that does not have this copy inside its cards list. If we want to execute actions on this card that involve the Account, we will check its existance via the weak pointer. If it doesn't exist we display an error message, otherwise we grab temporary shared ownership of the account to execute our action. We grab temporary shared ownership to prevent the **undefined behaviour** that would happen if the Account gets deleted while we execute our action (since temporary shared ownership means the object can't be destroyed).
 
 ```c++
 //card.cpp
@@ -319,7 +319,7 @@ bool ControlPanel::loadRandomData(){
 }
 ```
 
-**Important**: we have to keep in mind using pointers and references when working with polymorphic classes to avoid **object slicing**. An object will always be sliced if it's class does not contain a virtual method/destructor. Inside constructors and destructors we can not use **late binding** (meaning the virtual methods will use the definition inside their class, not the one set by the virtual instance).
+**Important**: we have to keep in mind using pointers and references when working with polymorphic classes to avoid **object slicing**. An object will always be sliced if its class does not contain a virtual method/destructor. Inside constructors and destructors we can not use **late binding** (meaning the virtual methods will use the definition inside their class, not the one set by the virtual instance).
 
 **Constructors can't use late binding** because they are the first thing to be created, from base to child, so the child's methods are not constructed yet. 
 
@@ -329,7 +329,7 @@ Due to the fact copy constructors can't do late binding, we can't directly copy 
 
 ### Exception Handling
 
-We handle exceptions via `try{}catch(...){}` blocks. A try block can have multiple catch blocks for different data types. The blocks are tried in order but no implicit conversion will be made, **exception for upcast**. A derived class needs to be put before it's base. After the catch block is finished, the code continues right after the `try{}catch{}`. It will not go back in the try block.
+We handle exceptions via `try{}catch(...){}` blocks. A try block can have multiple catch blocks for different data types. The blocks are tried in order but no implicit conversion will be made, **exception for upcast**. A derived class needs to be put before its base. After the catch block is finished, the code continues right after the `try{}catch{}`. It will not go back in the try block.
 
 Example in this project:
 
@@ -437,7 +437,7 @@ A factory is a class that offers implementations that are commonly used/required
 
 A builder is a class that gradually builds an instance of another class by specifing each property individually. In this project we have an AccountBuilder which can gradually build an Account.
 
-A decorator is a class which allows you to convert an object into a different format. In this project's case, we can convert a card into it's JSON format or CSV format.
+A decorator is a class which allows you to convert an object into a different format. In this project's case, we can convert a card into its JSON format or CSV format.
 
 ## Command Line Images
 
@@ -469,10 +469,10 @@ Leaderboard Main Menu Option:
 
 ## Additional Information
 
-- This project was initially created in romanian and translated afterwards. The project might not have it's variables fully translated! (Sorry for that)
+- This project was initially created in romanian and translated afterwards. The project might not have its variables fully translated! (Sorry for that)
 
 ### Bibliography
 
 - https://github.com/mcmarius/poo/tree/refacere-materiale/tema-3
 - https://en.cppreference.com/w/
-- Lect. Dr. Anca Dobrovat & Prof. Dr. Andrei Paun (2022). _Object Oriented Programming Course_. University of Bucharest, Faculty of Mathematics and Computer Science
+- Lect. Dr. Anca Dobrovăț & Prof. Dr. Andrei Păun (2022). _Object Oriented Programming Course_. University of Bucharest, Faculty of Mathematics and Computer Science
